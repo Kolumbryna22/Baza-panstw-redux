@@ -1,5 +1,18 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import store from './store/index';
+import DevTools from './DevTools';
+import { getCountries } from './actions/actions-countries';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+render(
+    <Provider store={store}>
+        <div>
+            <h1>Inicjalizacja projektu</h1>
+            <DevTools />
+        </div>
+    </Provider>,
+    document.getElementById('root')
+);
+
+store.dispatch(getCountries());
