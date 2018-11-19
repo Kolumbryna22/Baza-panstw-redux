@@ -9,6 +9,7 @@ import routes from './routes';
 import './country.css';
 
 render(
+    /*eslint no-unused-vars: "off"*/
     <Provider store={store}>
         <div>
             <Router history={hashHistory} routes={routes} />

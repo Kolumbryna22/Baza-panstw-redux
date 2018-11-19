@@ -20,17 +20,18 @@ const countriesReducer = function (state = initialState, action) {
 
             return Object.assign({}, state, {visibleCountries: foundCountries});
         case DELETE_COUNTRY:
-            const notDeletedCountries = state.countries.filter(country => country.id != action.id);
-            const notDeDeletedVisibleCountries = state.visibleCountries.filter(country => country.id != action.id);
+            const notDeletedCountries = state.countries.filter(country => country.id !== action.id);
+            const notDeDeletedVisibleCountries = state.visibleCountries.filter(country => country.id !== action.id);
 
             return Object.assign({}, state, {countries: notDeletedCountries, visibleCountries: notDeDeletedVisibleCountries});
         case SET_CONTINENT:
             const continentCountries = state.countries.filter(country => country.continent === action.name);
 
             return Object.assign({}, state, {visibleCountries: continentCountries});
+        default:
+            return state;
+            // eslint-disable-next-line
     };
-
-    return state;
 };
 
 export default countriesReducer;
